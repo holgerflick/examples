@@ -147,69 +147,7 @@ var
   LUrl: String;
 
 begin
-  LUrl := TMusicApiConst.BaseUrl +
-    TMusicApiConst.PathGetTracksForAlbum( Id );
-
-  FTracks.Clear;
-
-  LTask := TTask.Create(
-    procedure
-    var
-      LClient: THttpClient;
-      LRes: THttpResponse;
-      LDoc: IJsonDocument;
-      LData: TJsonValue;
-      LTrack: TTrack;
-
-    begin
-      LRes := nil;
-
-      LClient := THttpClient.Create;
-      try
-        LClient.OnSendingRequest := TDeveloperToken.Shared.OnSendingRequest;
-
-        LRes := LClient.Get( LUrl );
-        if LRes.StatusCode = 200 then
-        begin
-          TMonitor.Enter(self);
-          try
-            FTracks.Clear;
-          finally
-            TMonitor.Exit(self);
-          end;
-
-          LDoc := TJsonDocument.Parse( TEncoding.UTF8.GetString( LRes.ContentAsBytes  ) );
-          LData := LDoc.Root.Values['data'];
-          for var i := 0 to LData.Count - 1 do
-          begin
-            LTrack := TTrack.Create( LData[i] );
-            TMonitor.Enter(self);
-            try
-              FTracks.Add(LTrack);
-            finally
-              TMonitor.Exit(self);
-            end;
-          end;
-
-          TThread.Queue( nil,
-            procedure
-            begin
-              if Assigned( AFinishedProc ) then
-              begin
-                AFinishedProc( FTracks );
-              end;
-            end
-          );
-        end;
-      finally
-        LRes.Free;
-        LClient.Free;
-      end;
-    end
-  );
-
-  FTask := LTask;
-  LTask.Start;
+    // ...
 end;
 
 function TAlbum.GetGenre(Index: Integer): String;
@@ -227,35 +165,7 @@ var
   LAttr: TJsonValue;
 
 begin
-  LAttr := AValue.Values['attributes'];
-
-  FId := AValue['id'].ToInteger;
-  FHref := AValue['href'].ToString;
-
-  FArtistName := LAttr['artistName'].ToString;
-  FIsSingle := LAttr['isSingle'].ToBoolean;
-  FIsComplete := LAttr['isComplete'].ToBoolean;
-  FUrl := LAttr['url'].ToString;
-
-  var LGenreNames := LAttr['genreNames'];
-  for var i := 0 to LGenreNames.Count-1 do
-  begin
-    var LGenre := LGenreNames[i].ToString;
-    Genres[i] := LGenre;
-  end;
-
-  FTrackCount := LAttr['trackCount'].ToInteger;
-  FIsMasteredForItunes := LAttr['isMasteredForItunes'].ToBoolean;
-  FReleaseDate := LAttr['releaseDate'].ToString;
-  FName := LAttr['name'].ToString;
-  FRecordLabel := LAttr['recordLabel'].ToString;
-  FUpc := LAttr['upc'].ToString;
-  FCopyright := LAttr['copyright'].ToString;
-
-  FArtwork.ReadFromJson( LAttr['artwork'] );
-  FNotes.ReadFromJson( LAttr['editorialNotes'] );
-
-  FIsCompilation := LAttr['isCompilation'].ToBoolean;
+	// ...
 end;
 
 procedure TAlbum.SetGenre(Index: Integer; const Value: String);
