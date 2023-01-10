@@ -8,7 +8,9 @@ object ReportGenerator: TReportGenerator
       'LockingMode=Normal'
       'JournalMode=Off'
       'DriverID=SQLite')
+    ConnectedStoredUsage = []
     Connected = True
+    LoginPrompt = False
     Left = 88
     Top = 56
   end

@@ -1,7 +1,7 @@
 object FrmMain: TFrmMain
   Left = 0
   Top = 0
-  Caption = 'FrmMain'
+  Caption = 'FlexCel -- Master/Detail report with FireDAC and SQLite'
   ClientHeight = 556
   ClientWidth = 848
   Color = clBtnFace
@@ -10,6 +10,8 @@ object FrmMain: TFrmMain
   Font.Height = -15
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   DesignSize = (
     848
     556)
