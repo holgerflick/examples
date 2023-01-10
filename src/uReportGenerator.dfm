@@ -17,8 +17,15 @@ object ReportGenerator: TReportGenerator
   object QInstructors: TFDQuery
     Connection = Connection
     SQL.Strings = (
-      'select * from instructors '
-      '  order by name')
+      
+        'select id, name, count(w.id_instructor) as cnt from instructors ' +
+        'i '
+      '  left join items w on ( w.id_instructor = i.id )'
+      '  group by w.id_instructor'
+      '  having cnt > 10'
+      '  order by cnt desc'
+      ''
+      '')
     Left = 88
     Top = 144
   end
@@ -26,10 +33,12 @@ object ReportGenerator: TReportGenerator
     MasterSource = srcinstructors
     Connection = Connection
     SQL.Strings = (
-      'select * from items         '
+      
+        'select *, (total_output * 1.0)/duration as ratio from items     ' +
+        '    '
       '  where id_instructor = :id'
-      '  order by total_output/duration desc, starttime desc'
-      '  limit :cnt'
+      '  order by ratio desc, total_output desc, starttime desc'
+      '  limit :maxCount'
       '')
     Left = 176
     Top = 144
@@ -41,7 +50,7 @@ object ReportGenerator: TReportGenerator
         Value = 2
       end
       item
-        Name = 'CNT'
+        Name = 'MAXCOUNT'
         DataType = ftString
         ParamType = ptInput
         Value = '5'

@@ -88,7 +88,7 @@ var
 begin
   QInstructors.Open;
 
-  QClasses.ParamByName('cnt').AsInteger := 5;
+  QClasses.ParamByName('maxCount').AsInteger := 5;
   QClasses.Open;
 
   LTemplate := nil;
@@ -96,9 +96,6 @@ begin
 
   LReport := TFlexCelReport.Create( true );
   try
-    QInstructors.DisableControls;
-    QClasses.DisableControls;
-
     LReport.AddTable( 'i', QInstructors );
     LReport.AddTable( 'c', QClasses );
 
