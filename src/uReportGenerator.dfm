@@ -9,10 +9,9 @@ object ReportGenerator: TReportGenerator
       'JournalMode=Off'
       'DriverID=SQLite')
     ConnectedStoredUsage = []
-    Connected = True
     LoginPrompt = False
-    Left = 88
-    Top = 56
+    Left = 80
+    Top = 48
   end
   object QInstructors: TFDQuery
     Connection = Connection
@@ -26,8 +25,8 @@ object ReportGenerator: TReportGenerator
       '  order by cnt desc'
       ''
       '')
-    Left = 88
-    Top = 144
+    Left = 80
+    Top = 120
   end
   object QClasses: TFDQuery
     MasterSource = srcinstructors
@@ -40,8 +39,8 @@ object ReportGenerator: TReportGenerator
       '  order by ratio desc, total_output desc, starttime desc'
       '  limit :maxCount'
       '')
-    Left = 176
-    Top = 144
+    Left = 184
+    Top = 120
     ParamData = <
       item
         Name = 'ID'
@@ -58,7 +57,7 @@ object ReportGenerator: TReportGenerator
   end
   object srcinstructors: TDataSource
     DataSet = QInstructors
-    Left = 96
-    Top = 224
+    Left = 80
+    Top = 184
   end
 end
