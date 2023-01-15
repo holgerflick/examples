@@ -1,9 +1,6 @@
-# Delphi Examples
+# FireDAC: Fetching Data and RecordCount
 
-This repository contains examples from various tutorials grouped by branches. That means in order to access source code from a certain tutorial, 
-you have to select it using its branch name. Each branch contains exactly one example which refers to one or a few tutorial videos.
+When retrieving data using TFDQuery, the number of records is restricted to `50` by default. This
+example shows how to make the proper changes so it will return all results and RecordCount works
+correctly.
 
-The tutorial videos refer to the branch. So, in order to find the source code for a certain video, please look at its description for the branch 
-name of the source code.
-
-If you clone this repository, you have thereby all examples for all videos.
