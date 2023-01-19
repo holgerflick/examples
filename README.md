@@ -1,9 +1,16 @@
-# Delphi Examples
+# Materialien zu Mehrschichtige Web-Anwendungsentwicklung mit RAD Server und TMS WEB Core
 
-This repository contains examples from various tutorials grouped by branches. That means in order to access source code from a certain tutorial, 
-you have to select it using its branch name. Each branch contains exactly one example which refers to one or a few tutorial videos.
+Quelltexte, Beispieldatenbank und Folien sind in den folgenden Verzeichnissen zu finden. Eine Projektgruppe befindet sich im Verzeichnis `dataset`.
 
-The tutorial videos refer to the branch. So, in order to find the source code for a certain video, please look at its description for the branch 
-name of the source code.
+## db
 
-If you clone this repository, you have thereby all examples for all videos.
+SQLite Beispieldatenbank
+
+## dataset
+
+RAD Server Beispielprojekt
+
+## web
+
+TMS WEB Core Beispielprojekt
+
