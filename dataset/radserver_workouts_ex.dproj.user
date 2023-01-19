@@ -1,0 +1,15 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <Debugger_RunParams>-l&quot;$(TargetName)&quot;</Debugger_RunParams>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <Debugger_HostApplication>$(BDS)\bin\EMSDevServer.exe</Debugger_HostApplication>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <Debugger_HostApplication>$(BDS)\bin64\EMSDevServer.exe</Debugger_HostApplication>
+    </PropertyGroup>
+</Project>

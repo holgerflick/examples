@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{08629C85-FC77-455E-9DAB-9F48CAD71151}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="radserver_workouts_ex.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\web\DataSetClient.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="radserver_workouts_ex">
+        <MSBuild Projects="radserver_workouts_ex.dproj"/>
+    </Target>
+    <Target Name="radserver_workouts_ex:Clean">
+        <MSBuild Projects="radserver_workouts_ex.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="radserver_workouts_ex:Make">
+        <MSBuild Projects="radserver_workouts_ex.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DataSetClient">
+        <MSBuild Projects="..\web\DataSetClient.dproj"/>
+    </Target>
+    <Target Name="DataSetClient:Clean">
+        <MSBuild Projects="..\web\DataSetClient.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DataSetClient:Make">
+        <MSBuild Projects="..\web\DataSetClient.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="radserver_workouts_ex;DataSetClient"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="radserver_workouts_ex:Clean;DataSetClient:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="radserver_workouts_ex:Make;DataSetClient:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
