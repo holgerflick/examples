@@ -4,7 +4,7 @@
         <AppType>Application</AppType>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <FrameworkType>VCL</FrameworkType>
-        <MainSource>StartingPointVCL.dpr</MainSource>
+        <MainSource>GenericsEx.dpr</MainSource>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <ProjectGuid>{FE46EED8-7FE3-4F90-9D71-EADA03EC11FE}</ProjectGuid>
         <ProjectVersion>19.5</ProjectVersion>
@@ -41,7 +41,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>StartingPointVCL</SanitizedProjectName>
+        <SanitizedProjectName>GenericsEx</SanitizedProjectName>
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
@@ -105,7 +105,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">StartingPointVCL.dpr</Source>
+                    <Source Name="MainSource">GenericsEx.dpr</Source>
                 </Source>
             </Delphi.Personality>
             <Platforms>
