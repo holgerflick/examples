@@ -6,11 +6,11 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VCL.TMSFNCTypes, VCL.TMSFNCUtils,
   VCL.TMSFNCGraphics, VCL.TMSFNCGraphicsTypes, VCL.TMSFNCCustomControl,
-  VCL.TMSFNCWebBrowser, VCL.TMSFNCEdgeBrowser, Vcl.StdCtrls;
+  VCL.TMSFNCWebBrowser, VCL.TMSFNCEdgeWebBrowser, Vcl.StdCtrls;
 
 type
   TFrmMain = class(TForm)
-    Browser: TTMSFNCEdgeBrowser;
+    Browser: TTMSFNCEdgeWebBrowser;
     txtURL: TEdit;
     btnGo: TButton;
     procedure BrowserInitialized(Sender: TObject);

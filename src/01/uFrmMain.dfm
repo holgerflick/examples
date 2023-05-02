@@ -1,7 +1,7 @@
 object FrmMain: TFrmMain
   Left = 0
   Top = 0
-  Caption = 'TMS FNC Edge Browser Demo'
+  Caption = 'TMS FNC Edge Web Browser Demo'
   ClientHeight = 441
   ClientWidth = 624
   Color = clBtnFace
@@ -14,7 +14,7 @@ object FrmMain: TFrmMain
     624
     441)
   TextHeight = 15
-  object Browser: TTMSFNCEdgeBrowser
+  object Browser: TTMSFNCEdgeWebBrowser
     Left = 0
     Top = 42
     Width = 624
